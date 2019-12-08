@@ -82,11 +82,16 @@ func destroy_medium_asteroid (asteroid : MediumAsteroid):
 func destroy_small_asteroid (asteroid : SmallAsteroid) -> void:
 	asteroid.queue_free()
 
+var elapsed_time := 0.0
+
 func _process (delta):
+	elapsed_time += delta
+	
 	for child in get_children():
 		if child is KinematicBody2D:
 			child.position.x = wrapf(child.position.x, -screen_buffer, screen_size.x + screen_buffer)
 			child.position.y = wrapf(child.position.y, -screen_buffer, screen_size.y + screen_buffer)
 
 func _on_Ship_death():
+	print(elapsed_time)
 	queue_free()
