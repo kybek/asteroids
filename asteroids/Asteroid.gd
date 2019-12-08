@@ -10,6 +10,7 @@ var screen_size
 const screen_buffer = 0
 
 var is_dummy := false
+var destroyed_direction := Vector2(0.0, 0.0)
 
 func _integrate_forces(state):
 	if is_dummy:

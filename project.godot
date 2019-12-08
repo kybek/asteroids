@@ -23,11 +23,23 @@ _global_script_classes=[ {
 "class": "LaserBeam",
 "language": "GDScript",
 "path": "res://LaserBeam/LaserBeam.gd"
+}, {
+"base": "Asteroid",
+"class": "MediumAsteroid",
+"language": "GDScript",
+"path": "res://Asteroids/MediumAsteroid/MediumAsteroid.gd"
+}, {
+"base": "Asteroid",
+"class": "SmallAsteroid",
+"language": "GDScript",
+"path": "res://Asteroids/SmallAsteroid/SmallAsteroid.gd"
 } ]
 _global_script_class_icons={
 "Asteroid": "",
 "LargeAsteroid": "",
-"LaserBeam": ""
+"LaserBeam": "",
+"MediumAsteroid": "",
+"SmallAsteroid": ""
 }
 
 [application]
