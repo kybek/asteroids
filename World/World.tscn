@@ -22,6 +22,4 @@ position = Vector2( 521.873, 401.584 )
 
 [node name="LargeAsteroid3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 386.779, 233.178 )
-
-[node name="DummyRealm" type="Node2D" parent="."]
 [connection signal="death" from="Ship" to="." method="_on_Ship_death"]

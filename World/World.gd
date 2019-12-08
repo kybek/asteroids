@@ -3,8 +3,6 @@ extends Node2D
 var screen_size
 var screen_buffer = 0
 
-onready var DummyRealm = get_node("DummyRealm")
-
 var dirs = [
 	Vector2(0, -1),
 	Vector2(1, 0),
@@ -43,15 +41,10 @@ func copy_asteroid (asteroid : RigidBody2D, dir : Vector2) -> void:
 	asteroid2.rotation = asteroid.rotation
 	asteroid.add_child(asteroid2)
 
-#func _physics_process (delta):
-#	for child in DummyRealm.get_children():
-#		DummyRealm.remove_child(child)
-#		child.free()
-
 func _process (delta):
 	var ship = get_node("Ship")
 	ship.position.x = wrapf(ship.position.x, -screen_buffer, screen_size.x + screen_buffer)
 	ship.position.y = wrapf(ship.position.y, -screen_buffer, screen_size.y + screen_buffer)
 
 func _on_Ship_death():
-	pass
+	queue_free()
