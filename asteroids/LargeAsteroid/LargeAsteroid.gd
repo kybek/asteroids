@@ -1,0 +1,3 @@
+extends Asteroid
+
+class_name LargeAsteroid

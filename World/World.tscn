@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://World/World.gd" type="Script" id=1]
+[ext_resource path="res://Ship/Ship.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Asteroids/LargeAsteroid/LargeAsteroid.tscn" type="PackedScene" id=3]
+
+[node name="World" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 512, 300 )
+current = true
+
+[node name="Ship" parent="." instance=ExtResource( 2 )]
+position = Vector2( 106.3, 104.163 )
+
+[node name="LargeAsteroid1" parent="." instance=ExtResource( 3 )]
+position = Vector2( 604.541, 235.064 )
+
+[node name="LargeAsteroid2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 521.873, 401.584 )
+
+[node name="LargeAsteroid3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 386.779, 233.178 )
+
+[node name="DummyRealm" type="Node2D" parent="."]
+[connection signal="death" from="Ship" to="." method="_on_Ship_death"]
