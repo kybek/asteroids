@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Asteroids/LargeAsteroid/LargeAsteroid.gd" type="Script" id=1]
 [ext_resource path="res://Asteroids/Asteroid.shader" type="Shader" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Assets/LargeAsteroid.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 64.0

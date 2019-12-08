@@ -42,9 +42,10 @@ func copy_asteroid (asteroid : RigidBody2D, dir : Vector2) -> void:
 	asteroid.add_child(asteroid2)
 
 func _process (delta):
-	var ship = get_node("Ship")
-	ship.position.x = wrapf(ship.position.x, -screen_buffer, screen_size.x + screen_buffer)
-	ship.position.y = wrapf(ship.position.y, -screen_buffer, screen_size.y + screen_buffer)
+	for child in get_children():
+		if child is KinematicBody2D:
+			child.position.x = wrapf(child.position.x, -screen_buffer, screen_size.x + screen_buffer)
+			child.position.y = wrapf(child.position.y, -screen_buffer, screen_size.y + screen_buffer)
 
 func _on_Ship_death():
 	queue_free()

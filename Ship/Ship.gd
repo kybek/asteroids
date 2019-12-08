@@ -12,13 +12,23 @@ var is_dummy := false
 
 signal death
 
-func rotate_cw (angle : float):
+func rotate_cw (angle : float) -> void:
 	direction = direction.rotated(angle / 180.0)
 	rotate(angle / 180.0)
 
-func rotate_ccw (angle : float):
+func rotate_ccw (angle : float) -> void:
 	direction = direction.rotated(-angle / 180.0)
 	rotate(-angle / 180.0)
+
+func shoot () -> void:
+	var pos_vec = Vector2(get_node("Shape").shape.extents.x / 4, -20).rotated(rotation)
+	var aim_vec = Vector2(0, -1).rotated(rotation)
+	
+	var laser = preload("res://LaserBeam/LaserBeam.tscn").instance()
+	laser.global_position = global_position + pos_vec
+	laser.direction = aim_vec
+	laser.rotate(rotation)
+	get_tree().current_scene.add_child(laser)
 
 func _process (delta):
 	clamp(velocity.x, -MAX_VELOCITY, MAX_VELOCITY)
@@ -27,7 +37,8 @@ func _process (delta):
 	var collision = move_and_collide(velocity * delta, false, true, is_dummy)
 	
 	if collision != null:
-		emit_signal("death")
+		if not (collision.collider is LaserBeam):
+			emit_signal("death")
 	
 	if is_dummy:
 		return
@@ -40,6 +51,11 @@ func _process (delta):
 	
 	if Input.is_action_pressed("boost"):
 		velocity = velocity + direction * BOOST_VELOCITY
+	
+	if Input.is_action_pressed("shoot"):
+		if get_node("LaserTimer").time_left == 0:
+			shoot()
+			get_node("LaserTimer").start()
 
 func make_dummy ():
 	if is_dummy:

@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "LargeAsteroid",
 "language": "GDScript",
 "path": "res://Asteroids/LargeAsteroid/LargeAsteroid.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "LaserBeam",
+"language": "GDScript",
+"path": "res://LaserBeam/LaserBeam.gd"
 } ]
 _global_script_class_icons={
 "Asteroid": "",
-"LargeAsteroid": ""
+"LargeAsteroid": "",
+"LaserBeam": ""
 }
 
 [application]
