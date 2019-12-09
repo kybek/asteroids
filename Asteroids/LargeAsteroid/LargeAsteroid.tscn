@@ -4,22 +4,22 @@
 [ext_resource path="res://Asteroids/Asteroid.shader" type="Shader" id=2]
 [ext_resource path="res://Assets/LargeAsteroid.png" type="Texture" id=3]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=2]
 radius = 64.0
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 2 )
 shader_param/radius = 0.5
 
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=4]
 code = "shader_type canvas_item;
 
 void main () {
 	vec4 color = vec4(vec3(1.0,1.0,1.0),1.0);
 }"
 
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
 
 [node name="LargeAsteroid" type="RigidBody2D"]
 gravity_scale = 0.0
@@ -27,15 +27,15 @@ script = ExtResource( 1 )
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 position = Vector2( 1, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Shape"]
-material = SubResource( 2 )
+material = SubResource( 3 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 
 [node name="Shape2" type="CollisionPolygon2D" parent="."]
 visible = false
-material = SubResource( 4 )
+material = SubResource( 5 )
 polygon = PoolVector2Array( -27.6613, -31.2081, -12.1295, -28.6569, -2.756, -19.8875, 8.56461, -27.4346, 21.772, -28.944, 30.0738, -18.3781, 27.0549, -3.66133, 29.3191, 15.2064, 20.6399, 24.6402, -11.8125, 26.527, -7.66159, 13.6969, -25.3972, 11.4328, -23.5104, -1.39721, -31.4349, -17.2461 )
 disabled = true

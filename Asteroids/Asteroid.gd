@@ -4,7 +4,7 @@ class_name Asteroid
 
 const MADE_IN_HEAVEN = 1.0
 
-const VELOCITY = 20000.0 * MADE_IN_HEAVEN
+const VELOCITY = 50.0 * MADE_IN_HEAVEN
 
 var screen_size
 const screen_buffer = 0
