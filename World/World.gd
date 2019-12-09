@@ -86,6 +86,7 @@ var elapsed_time := 0.0
 
 func _process (delta):
 	elapsed_time += delta
+	print(elapsed_time)
 	
 	for child in get_children():
 		if child is KinematicBody2D:
