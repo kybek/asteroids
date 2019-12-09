@@ -86,7 +86,10 @@ var elapsed_time := 0.0
 
 func _process (delta):
 	elapsed_time += delta
+<<<<<<< HEAD
 #	print(elapsed_time)
+=======
+>>>>>>> 8eb27aca3697355fb5e5b4f215c379bb47f6ab19
 	
 	for child in get_children():
 		if child is KinematicBody2D:
@@ -95,4 +98,8 @@ func _process (delta):
 
 func _on_Ship_death():
 	print(elapsed_time)
+<<<<<<< HEAD
 #	queue_free()
+=======
+	queue_free()
+>>>>>>> 8eb27aca3697355fb5e5b4f215c379bb47f6ab19
